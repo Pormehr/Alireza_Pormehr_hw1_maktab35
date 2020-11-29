@@ -10,6 +10,8 @@ class Category extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $guarded = [];
 
     //Mutators
@@ -22,5 +24,10 @@ class Category extends Model
     public function posts()
     {
         return $this->belongsToMany(Post::class);
+    }
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
     }
 }
