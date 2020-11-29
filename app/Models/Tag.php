@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
-class Post extends Model
+class Tag extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+
+    public $timestamps = false;
 
     protected $guarded = [];
 
@@ -20,13 +21,8 @@ class Post extends Model
     }
 
     //Relations
-    public function author()
+    public function posts()
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Post::class);
     }
 }
