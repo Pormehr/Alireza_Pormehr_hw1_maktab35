@@ -13,13 +13,13 @@ class Post extends Model
 
     protected $guarded = [];
 
-    //Mutators
+    //Mutators------------------------------------------------------
     public function setSlugAttribute()
     {
         $this->attributes['slug'] = Str::slug($this->attributes['title']);
     }
 
-    //Relations
+    //Relations-----------------------------------------------------
     public function author()
     {
         return $this->belongsTo(User::class);

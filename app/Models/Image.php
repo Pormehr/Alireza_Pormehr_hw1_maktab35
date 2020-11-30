@@ -14,13 +14,13 @@ class Image extends Model
 
     protected $guarded = [];
 
-    //Mutators
+    //Mutators------------------------------------------------------
     public function setAltAttribute()
     {
         $this->attributes['alt'] = Str::slug($this->attributes['title']);
     }
 
-    //Relations
+    //Relations-----------------------------------------------------
     public function imageable()
     {
         return $this->morphTo();

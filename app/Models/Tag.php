@@ -14,13 +14,13 @@ class Tag extends Model
 
     protected $guarded = [];
 
-    //Mutators
+    //Mutators------------------------------------------------------
     public function setSlugAttribute()
     {
         $this->attributes['slug'] = Str::slug($this->attributes['title']);
     }
 
-    //Relations
+    //Relations-----------------------------------------------------
     public function posts()
     {
         return $this->belongsToMany(Post::class);
