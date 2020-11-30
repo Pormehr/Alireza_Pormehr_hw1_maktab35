@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Image extends Model
 {
@@ -15,9 +14,9 @@ class Image extends Model
     protected $guarded = [];
 
     //Mutators------------------------------------------------------
-    public function setAltAttribute()
+    public function setAltAttribute($value)
     {
-        $this->attributes['alt'] = Str::slug($this->attributes['title']);
+        $this->attributes['alt'] = $value ?? $this->attributes['title'];
     }
 
     //Relations-----------------------------------------------------
