@@ -15,7 +15,7 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->jobTitle,
             'content' => $this->faker->word,
-            'author' => rand(1, 20),
+            'author_id' => rand(1, 20),
         ];
     }
 }
