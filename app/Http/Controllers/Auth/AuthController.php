@@ -15,7 +15,7 @@ class AuthController extends Controller
 
     public function givePhone(GivePhoneRequest $request)
     {
-        session('phone', $request->phone);
+        session(['phone' => $request->phone]);
         if (User::where('phone', $request->phone)->exists()){
             return 'login';
         }else{

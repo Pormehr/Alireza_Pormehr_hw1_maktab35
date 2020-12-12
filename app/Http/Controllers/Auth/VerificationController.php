@@ -26,10 +26,12 @@ class VerificationController extends Controller
         $verificationCode = Cache::get($phone);
         if (isset($code) && $verificationCode != NULL && $verificationCode == $code){
             Cache::forget($phone);
-            //
+            return redirect()->route('auth.register.completion');
         }else{
             Cache::forget($phone);
-            return redirect()->route('auth.send.verification.code')->withResult(['message' => "Wrong Code!\nTry again with new code"]);
+
+            return redirect()->route('auth.send.verification.code')
+                ->withResult(['message' => "Wrong Code!\nTry again with new code"]);
         }
     }
 
