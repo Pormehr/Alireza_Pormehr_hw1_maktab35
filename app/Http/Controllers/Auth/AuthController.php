@@ -17,7 +17,7 @@ class AuthController extends Controller
     {
         session(['phone' => $request->phone]);
         if (User::where('phone', $request->phone)->exists()){
-            return 'login';
+            return redirect()->route('auth.show.login');
         }else{
             return redirect()->route('auth.send.verification.code');
         }
