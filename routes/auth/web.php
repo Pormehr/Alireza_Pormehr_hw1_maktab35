@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\VerificationController;
 use Illuminate\Support\Facades\Route;
@@ -13,3 +14,6 @@ Route::post('register/verifyPhone', [VerificationController::class, 'verifyPhone
 
 Route::get('register/completion', [RegisterController::class, 'index'])->name('register.completion');
 Route::post('register/creation', [RegisterController::class, 'store'])->name('register.store');
+
+Route::get('login', [LoginController::class, 'index'])->name('show.login');
+Route::post('login/confirm', [LoginController::class, 'login'])->name('confirm.login');
