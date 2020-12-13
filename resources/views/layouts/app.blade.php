@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"  @if(\Illuminate\Support\Facades\App::getLocale() == 'fa') dir="rtl" @endif>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"  @if(App::getLocale() == 'fa') dir="rtl" @endif>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -13,7 +13,28 @@
 
 </head>
 <body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
+    <a class="navbar-brand" href="{{ route('home') }}">{{ config('app.name', 'Laravel') }}</a>
+
+    <ul class="navbar-nav">
+        @auth
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                {{ Auth::user()->name }}
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Dashboard</a>
+                <a class="dropdown-item" href="{{ route('auth.logout') }}">Logout</a>
+            </div>
+        </li>
+        @else
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('auth.show.form') }}">Login Or Register</a>
+        </li>
+        @endauth
+    </ul>
+</nav>
 
 @yield('content')
 
