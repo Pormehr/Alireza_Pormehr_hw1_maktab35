@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.customer')
 
 @section('main_content')
 
@@ -8,34 +8,46 @@
         </div>
     @endif
 
-    <table class="table table-striped">
+    <div class="container">
+        <table class="table table-striped">
 
-        <thead class="bg-dark text-white">
-        <tr class="row text-center">
-            <th class="col-1">id</th>
-            <th class="col-2">name</th>
-            <th class="col-2">phone</th>
-            <th class="col-2">status</th>
-            <th class="col-4">email</th>
-            <th class="col-1">actions</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        @foreach($customers as $customer)
+            <thead class="bg-dark text-white">
             <tr class="row text-center">
-                <td class="col-1">{{ $customer->id }}</td>
-                <td class="col-2">{{ $customer->name }}</td>
-                <td class="col-2">{{ $customer->phone ?? '-' }}</td>
-                <td class="col-2">@if($customer->status) <span class="text-success"> Active </span> @else <span class="text-danger"> Passive </span> @endif</td>
-                <td class="col-4">{{ $customer->email }}</td>
-                <td class="col-1">
-                    <a href="{{ route('admin.customer.show', $customer) }}" class="col-12 btn btn-info">show</a>
-                </td>
+                <th class="col-1">{{ __('posts.index.id') }}</th>
+                <th class="col-2">{{ __('posts.index.post_title') }}</th>
+                <th class="col-2">{{ __('posts.index.post_slug') }}</th>
+                <th class="col-1">{{ __('posts.index.author') }}</th>
+                <th class="col-2">{{ __('posts.index.categories') }}</th>
+                <th class="col-2">{{ __('posts.index.tags') }}</th>
+                <th class="col-2">{{ __('posts.index.operations') }}</th>
             </tr>
-        @endforeach
+            </thead>
 
-        </tbody>
-    </table>
-    {{ $customers->links() }}
+            <tbody>
+            @foreach($posts as $post)
+                <tr class="row text-center">
+                    <td class="col-1">{{ $post->id }}</td>
+                    <td class="col-2">{{ $post->title }}</td>
+                    <td class="col-2">{{ $post->slug }}</td>
+                    <td class="col-1">{{ $post->author->name }}</td>
+                    <td class="col-2">
+                        @foreach($post->categories as $category)
+                            <a href="#" class="badge badge-pill badge-primary">{{ $category->title }}</a>
+                        @endforeach
+                    </td>
+                    <td class="col-2">
+                        @foreach($post->tags as $tag)
+                            <a href="#" class="badge badge-pill badge-secondary">{{ $tag->title }}</a>
+                        @endforeach
+                    </td>
+                    <td class="col-2">
+                        <a href="{{ route('customer.post.show', $post) }}" class="col-6 btn btn-info">{{ __('posts.index.show') }}</a>
+                    </td>
+                </tr>
+            @endforeach
+
+            </tbody>
+        </table>
+    </div>
+    {{ $posts->links() }}
 @endsection

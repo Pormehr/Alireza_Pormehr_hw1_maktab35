@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.customer')
 
-@section('content')
+@section('main_content')
     <div class="container">
         <table class="table table-striped">
 
@@ -35,7 +35,6 @@
                     </td>
                     <td class="col-2">
                         <a href="#" class="col-5 btn btn-info">{{ __('posts.index.show') }}</a>
-                        <a href="#" class="col-5 btn btn-danger">{{ __('posts.index.delete') }}</a>
                     </td>
                 </tr>
             @endforeach
@@ -43,4 +42,5 @@
             </tbody>
         </table>
     </div>
+    {{ $posts->links() }}
 @endsection

@@ -8,7 +8,6 @@
         </div>
     @endif
 
-
     <div class="container-fluid card" style="height: 500px; font-weight: bolder; font-size: large">
         <div class="row">
             <div class="col-12">Name: <span class="text-success"> {{ $customer->name }} </span></div>
