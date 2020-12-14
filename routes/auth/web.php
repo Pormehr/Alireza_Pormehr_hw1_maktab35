@@ -18,4 +18,6 @@ Route::post('register/creation', [RegisterController::class, 'store'])->name('re
 Route::get('login', [LoginController::class, 'index'])->name('show.login');
 Route::post('login/confirm', [LoginController::class, 'login'])->name('confirm.login');
 
+Route::get('checkRole', CheckRoleController::class)->name('check.role');
+
 Route::get('logout', LogoutController::class)->name('logout');
