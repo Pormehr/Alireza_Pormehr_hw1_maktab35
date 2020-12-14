@@ -21,7 +21,6 @@ class CustomerController extends Controller
 
     public function destroy(User $customer)
     {
-        $customer->posts()->delete();
         $customer->delete();
         return redirect()->route('admin.customer.index')
             ->withResult([
