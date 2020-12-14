@@ -22,7 +22,7 @@ class LoginController extends Controller
         if (Hash::check($request->password, $user->password)){
             Auth::login($user);
             session()->forget('phone');
-            return 'dashboard'; #TODO create dashboard
+            return redirect()->route('auth.check.role');
         }else{
             return redirect()->route('auth.show.login')->withResult(['message' => 'The Password Is Incorrect!']);
         }

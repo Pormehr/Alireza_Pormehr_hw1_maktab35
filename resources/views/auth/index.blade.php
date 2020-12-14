@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @if($result = session('result'))
+        <div class="container mt-5 alert alert-{{ $result['alert'] }}">
+            {{ $result['message'] }}
+        </div>
+    @endif
+
     <div class="container mt-5">
         <form action="{{ route('auth.give.phone') }}" method="post">
             @csrf
