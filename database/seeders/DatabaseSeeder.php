@@ -7,11 +7,20 @@ use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
     public function run()
     {
+        User::create([
+            'name' => 'admin',
+            'role' => 'admin',
+            'phone' => '09123456789',
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('password'),
+        ]);
+
         User::factory(20)->create();
         $this->call([
             TagSeeder::class,
