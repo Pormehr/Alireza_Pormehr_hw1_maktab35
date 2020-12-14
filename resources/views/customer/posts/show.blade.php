@@ -33,7 +33,7 @@
         </div>
         <br><br>
         <div class="row">
-            <form action="" method="post" class="col-6">
+            <form action="{{ route('customer.change.post.status', $post) }}" method="post" class="col-6">
                 @csrf
                 <label>Status: </label>
                 <select name="status" class="form-control">

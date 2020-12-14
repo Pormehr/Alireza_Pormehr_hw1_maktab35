@@ -6,4 +6,4 @@ Route::resource('', 'CustomerController')->only(['index', 'edit', 'update', 'des
 
 Route::resource('post', 'PostController');
 
-//Route::post('post/{post}', 'ChangePostStatusController')->name('change.post.status');
+Route::post('post/{post}', 'ChangePostStatusController')->name('change.post.status');
