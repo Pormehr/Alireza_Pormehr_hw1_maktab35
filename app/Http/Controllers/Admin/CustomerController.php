@@ -6,11 +6,26 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class CustomerController extends Controller
 {
     public function index()
     {
-        echo view('admin.dashboard.index');
+        //
+    }
+
+    public function create()
+    {
+        //
+    }
+
+    public function store(Request $request)
+    {
+        //
+    }
+
+    public function show(User $user)
+    {
+        //
     }
 
     public function edit(User $user)
@@ -19,6 +34,11 @@ class AdminController extends Controller
     }
 
     public function update(Request $request, User $user)
+    {
+        //
+    }
+
+    public function destroy(User $user)
     {
         //
     }
