@@ -4,4 +4,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('', 'AdminController')->only(['index', 'edit', 'update']);
 
-Route::resource('customer', 'CustomerController');
+Route::resource('customer', 'CustomerController')->only(['index', 'show', 'destroy']);

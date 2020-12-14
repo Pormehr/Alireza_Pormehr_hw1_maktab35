@@ -24,7 +24,7 @@
                 {{ Auth::user()->name }}
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Dashboard</a>
+                <a class="dropdown-item" href="{{ route('admin.index') }}">Dashboard</a>
                 <a class="dropdown-item" href="{{ route('auth.logout') }}">Logout</a>
             </div>
         </li>

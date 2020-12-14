@@ -21,7 +21,7 @@
                 <td class="col-3">{{ $customer->phone }}</td>
                 <td class="col-4">{{ $customer->email }}</td>
                 <td class="col-1">
-                    <a href="#" class="col-12 btn btn-info">show</a>
+                    <a href="{{ route('admin.customer.show', $customer) }}" class="col-12 btn btn-info">show</a>
                 </td>
             </tr>
         @endforeach

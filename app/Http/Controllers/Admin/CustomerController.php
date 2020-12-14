@@ -12,35 +12,14 @@ class CustomerController extends Controller
     {
         $customers = User::where('role', 'customer')->paginate(6);
         return view('admin.customers.index')->withCustomers($customers);
-
     }
 
-    public function create()
+    public function show(User $customer)
     {
-        //
+        return view('admin.customers.show')->withCustomer($customer);
     }
 
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show(User $user)
-    {
-        //
-    }
-
-    public function edit(User $user)
-    {
-        //
-    }
-
-    public function update(Request $request, User $user)
-    {
-        //
-    }
-
-    public function destroy(User $user)
+    public function destroy(User $customer)
     {
         //
     }
