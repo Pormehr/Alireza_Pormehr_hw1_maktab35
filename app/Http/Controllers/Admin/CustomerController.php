@@ -10,7 +10,9 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        //
+        $customers = User::where('role', 'customer')->paginate(6);
+        return view('admin.customers.index')->withCustomers($customers);
+
     }
 
     public function create()

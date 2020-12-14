@@ -24,7 +24,7 @@
                     </ul>
                 </div>
             </nav>
-            <div class="ml-5 mt-5">
+            <div class="col col-9 ml-5 mt-5">
                 @yield('main_content')
             </div>
         </div>
