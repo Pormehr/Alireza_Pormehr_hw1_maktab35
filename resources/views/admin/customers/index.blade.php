@@ -1,6 +1,13 @@
 @extends('layouts.admin')
 
 @section('main_content')
+
+    @if($result = session('result'))
+        <div class="alert alert-{{ $result['alert'] }}">
+            {{ $result['message'] }}
+        </div>
+    @endif
+
     <table class="table table-striped">
 
         <thead class="bg-dark text-white">
