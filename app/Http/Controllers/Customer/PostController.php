@@ -27,8 +27,12 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        $post = $post->with(['tags', 'categories'])->first();
-        return view('customer.posts.show')->withPost($post);
+        if (Auth::id() == $post->author->id){
+            $post = $post->with(['tags', 'categories'])->first();
+            return view('customer.posts.show')->withPost($post);
+        }else{
+            abort(403);
+        }
     }
 
     public function edit(Post $post)
@@ -43,6 +47,15 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-        //
+        dd(Auth::id(), $post->author->id);
+        if (Auth::id() == $post->author->id){
+            $post->delete();
+            return view('customer.posts.index')->withResult([
+                'alert' => 'danger',
+                'message' => "$post->title deleted successfully!",
+                ]);
+        }else{
+            abort(403);
+        }
     }
 }

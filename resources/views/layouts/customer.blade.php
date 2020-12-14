@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-dark sidebar sticky-top" style="height: 600px">
+            <nav class="col-md-2 d-none d-md-block bg-dark sidebar" style="height: 600px">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
