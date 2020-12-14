@@ -27,7 +27,7 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        $post = $post->with(['tags', 'categories', 'image']);
+        $post = $post->with(['tags', 'categories'])->first();
         return view('customer.posts.show')->withPost($post);
     }
 

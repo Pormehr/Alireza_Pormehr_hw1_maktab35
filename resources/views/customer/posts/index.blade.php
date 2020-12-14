@@ -16,7 +16,7 @@
                 <th class="col-1">{{ __('posts.index.id') }}</th>
                 <th class="col-2">{{ __('posts.index.post_title') }}</th>
                 <th class="col-2">{{ __('posts.index.post_slug') }}</th>
-                <th class="col-1">{{ __('posts.index.author') }}</th>
+                <th class="col-1">Status</th>
                 <th class="col-2">{{ __('posts.index.categories') }}</th>
                 <th class="col-2">{{ __('posts.index.tags') }}</th>
                 <th class="col-2">{{ __('posts.index.operations') }}</th>
@@ -29,7 +29,7 @@
                     <td class="col-1">{{ $post->id }}</td>
                     <td class="col-2">{{ $post->title }}</td>
                     <td class="col-2">{{ $post->slug }}</td>
-                    <td class="col-1">{{ $post->author->name }}</td>
+                    <td class="col-1"> @if ($post->status) <span class="text-success"> Published </span> @else <span class="text-danger"> trashed </span> @endif</td>
                     <td class="col-2">
                         @foreach($post->categories as $category)
                             <a href="#" class="badge badge-pill badge-primary">{{ $category->title }}</a>
